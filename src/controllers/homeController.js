@@ -1,11 +1,9 @@
-import mysql from 'mysql2';
+import userService from '../service/userService'
+import bcrypt from 'bcryptjs';
+const salt = bcrypt.genSaltSync(10);
 
-//create a connection to the mysql database
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  database: 'jwt_fullstack_web'
-});
+
+
 
 const handleHelloWorld = (req, res) => {
 
@@ -18,23 +16,10 @@ const handleCreatenewUser= (req , res)=>{
   let email = req.body.email;
   let password = req.body.password;
   let username = req.body.username;
-connection.query(
-  'INSERT INTO users (email, password, username) VALUES (?, ?, ?)',
-  [email, password, username], 
-  function(err, results, fields){
-    console.log(results)
-    console.log(fields)
-    if(err){
-      console.log(err)
-    }
-    console.log(results);
-    
-  }
-)
-return res.send("handleCreateNewUser");
-
-  
+  userService.createNewUser(email,password,username);
+  return res.send("handleCreateNewUser")
 }
+
 module.exports = {
   handleHelloWorld,
   handleUserpage,

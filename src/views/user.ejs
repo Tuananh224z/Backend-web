@@ -45,10 +45,14 @@
                 <div class="card login-card p-4">
                     <div class="card-body">
                         <h3 class="card-title text-center mb-4 fw-bold text-dark">ĐĂNG NHẬP</h3>
-                        <form action="/login" method="POST">
+                        <form method="POST" action="/user/create-user">
                             <div class="mb-3">
-                                <label for="username" class="form-label fw-semibold text-secondary">Tài khoản hoặc Email</label>
-                                <input type="text" class="form-control py-2" id="username" name="username" placeholder="Nhập tài khoản hoặc email" required>
+                                <label for="username" class="form-label fw-semibold text-secondary">Tên đăng nhập</label>
+                                <input type="text" class="form-control py-2" id="username" name="username" placeholder="Nhập tên đăng nhập" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-semibold text-secondary">Email</label>
+                                <input type="email" class="form-control py-2" id="email" name="email" placeholder="Nhập địa chỉ email" required>
                             </div>
                             <div class="mb-4">
                                 <label for="password" class="form-label fw-semibold text-secondary">Mật khẩu</label>

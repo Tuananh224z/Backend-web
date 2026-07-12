@@ -1,6 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
+import configViewEngine from './src/config/viewEngine';
+import initWebRoutes from './src/routes/web';
 
 dotenv.config();
 
@@ -10,9 +12,8 @@ const port = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-  res.send('Hello World! Node.js & Express backend is running with Babel presets.');
-});
+configViewEngine(app);
+initWebRoutes(app);
 
 app.listen(port, () => {
   console.log(`Backend server is running on: http://localhost:${port}`);

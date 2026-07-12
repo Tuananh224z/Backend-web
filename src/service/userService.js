@@ -40,7 +40,8 @@ const createNewUser = (email, userpassword, username) => {
                 console.log(results);
             }
         }
-    )};
+    );
+};
 
 module.exports = {
     createNewUser,
